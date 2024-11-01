@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap");
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cabeçalho fixo */
+.header-fixo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to top, black, rgb(8, 0, 128));
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  border: rgb(255, 255, 255) 2px;
+}
+
+/* Estilo dos botões */
+.botoes {
+  display: flex;
+  gap: 15px;
+}
+
+.botao {
+  background-color: #f8f7ff;
+  color: rgb(0, 0, 0);
+  padding: 8px 18px;
+  border: 4px solid #ffffff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.5s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: #1e90ff; /* Azul */
+  color: white; /* Texto branco ao passar o cursor */
+}
+
+/* Menu hambúrguer (escondido por padrão) */
+.hamburger {
+  padding: 15%;
+  background-color: rgb(214, 214, 255);
+  border-radius: 20px;
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Menu lateral */
+.menu-lateral {
+  display: none; /* Esconder por padrão */
+  position: absolute;
+  top: 60px; /* Abaixo do cabeçalho */
+  right: 20px;
+  background: #020518;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 999;
+}
+
+.menu-lateral.show {
+  display: block; /* Mostrar quando ativo */
+}
+
+.menu-itens {
+  display: flex;
+  flex-direction: column; /* Itens em coluna */
+  gap: 10px;
+}
+
+/* Container principal */
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  padding-top: 80px;
+}
+
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.imagem {
+  flex: 0 0 auto; 
+  margin-right: 30px;
+}
+
+.imagem img {
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.descricao {
+  text-align: end; 
+}
+
+.descricao h1 {
+  color: rgb(245, 245, 248);
+  font-family: "Rubik Wet Paint", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  border-color: rgb(255, 255, 255);
+}
+
+.descricao p {
+  font-family: "Rubik Wet Paint", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  justify-content: flex-end; /* Alinha o conteúdo à direita */
+  font-size: 50px; /* Aumenta o tamanho do texto */
+}
+
+/* Estilos básicos para o container dos ícones */
+.contatos {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding: 20px;
+  flex-wrap: wrap; /* Faz com que os ícones se ajustem em linhas em telas menores */
+}
+
+/* Estilo para cada ícone com texto e borda */
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-weight: bold;
+}
+
+/* Ícones individuais com cor de fundo inicial */
+.icon.linkedin {
+  border-color: #0077b5;
+  color: #0077b5;
+  text-decoration: none;
+}
+
+.icon.github {
+  border-color: #333;
+  color: #333;
+  text-decoration: none;
+}
+
+.icon.instagram {
+  border-color: #e4405f;
+  color: #e4405f;
+  text-decoration: none;
+}
+
+.icon.email {
+  background-color: #000000;
+  border-color: #aaf300;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.icon.whatsapp {
+  border-color: #25d366;
+  color: #25d366;
+  text-decoration: none;
+}
+
+.icon.telegram {
+  border-color: #0088cc;
+  color: #0088cc;
+  text-decoration: none;
+}
+
+/* Ícones internos com transição e tamanho */
+.icon i {
+  font-size: 1.5em;
+  transition: transform 0.8s, color 0.3s; /* Suavidade no aumento e na cor */
+}
+
+/* Estilo ao passar o mouse - muda cor interna */
+.icon:hover {
+  background-color: #fff;
+  color: #001149;
+  border-color: #fff;
+}
+
+.icon:hover i {
+  transform: scale(1.2); /* Aumenta o ícone em 20% */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .icon {
+    padding: 8px 10px;
+    font-size: 0.8em; /* Diminui o texto e tamanho do ícone em telas menores */
+  }
+  .icon i {
+    font-size: 1.2em; /* Reduz o tamanho do ícone */
+  }
+
+  .contatos {
+    justify-content: space-around; /* Espalha os ícones uniformemente */
+  }
+}
+
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column; /* Imagem e descrição em coluna */
+    align-items: center; /* Centraliza no meio */
+    text-align: center;
+  }
+
+  .botoes {
+    display: none; /* Oculta os botões */
+  }
+
+  .hamburger {
+    display: block; /* Exibe o menu hambúrguer */
+  }
+
+  .descricao p {
+    font-size: 24px; /* Reduz o tamanho do texto */
+    justify-content: center; /* Centraliza o texto */
+  }
+}
